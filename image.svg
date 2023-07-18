@@ -15,53 +15,53 @@
     fill: #434d58;
 }
 </style>
-<svg class="star" x="20" xmlns="http://www.w3.org/2000/svg" y="30">
+<svg class="star" x="20" xmlns="http://www.w3.org/2000/svg" y="10">
 <text width="100" x="25" y="13">
-Total Stars Earned: 7
+Total Stars Earned: 3
 </text>
 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"/>
 </svg>
 </svg>
-<svg x="20" xmlns="http://www.w3.org/2000/svg" y="50">
+<svg x="20" xmlns="http://www.w3.org/2000/svg" y="30">
 <text class="title" x="0" y="30">
 Most Used Languages
 </text>
 <svg class="top_lang_chart" height="175" viewBox="0 0 300 175" width="300" x="0" xmlns="http://www.w3.org/2000/svg" y="50">
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="0">
 <text x="0" y="20">
-TypeScript: 50.6% (265KB)
+TypeScript: 50.5% (265KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="50.61990769647914%" x="0" y="27.5"/>
+<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="50.458139348973894%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="35">
 <text x="0" y="20">
-JavaScript: 18.2% (95KB)
+JavaScript: 18.1% (95KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="18.177148672826597%" x="0" y="27.5"/>
+<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="18.119059129858808%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="70">
 <text x="0" y="20">
-Go: 18.1% (94KB)
+Go: 18.0% (94KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="18.059143757864607%" x="0" y="27.5"/>
+<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="18.00143132858508%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="105">
 <text x="0" y="20">
-Rust: 8.8% (46KB)
+Rust: 9.1% (47KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="8.791175218204073%" x="0" y="27.5"/>
+<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="9.082655419063316%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="140">
 <text x="0" y="20">
-Python: 4.4% (22KB)
+Python: 4.3% (22KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="4.352624654625583%" x="0" y="27.5"/>
+<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="4.338714773518899%" x="0" y="27.5"/>
 </svg>
 </svg>
 </svg>
