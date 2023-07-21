@@ -1,1 +1,1 @@
-<img src="./image.svg"> 
+<img src="./github_stats.svg"> 
