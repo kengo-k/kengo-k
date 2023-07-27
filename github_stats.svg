@@ -39,73 +39,73 @@ Most Used Languages
 <svg class="top_lang_chart" height="504" viewBox="0 0 300 504" width="300" x="0" xmlns="http://www.w3.org/2000/svg" y="50">
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="0">
 <text x="0" y="20">
-TypeScript: 44.4% (275KB)
+TypeScript: 44.3% (275KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="44.40405444764668%" x="0" y="27.5"/>
+<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="44.276535958318135%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="40">
 <text x="0" y="20">
 MQL5: 17.0% (105KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#4A76B8" height="8" rx="5" ry="5" width="17.04908430567021%" x="0" y="27.5"/>
+<rect class="ratio" fill="#4A76B8" height="8" rx="5" ry="5" width="17.022021788830532%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="80">
 <text x="0" y="20">
-Go: 15.2% (94KB)
+Go: 15.4% (95KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="15.218982976662307%" x="0" y="27.5"/>
+<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="15.353397736930638%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="120">
 <text x="0" y="20">
 Rust: 6.9% (42KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="6.8680695351610215%" x="0" y="27.5"/>
+<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="6.857167644823747%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="160">
 <text x="0" y="20">
 Elm: 4.3% (26KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#60B5CC" height="8" rx="5" ry="5" width="4.282948823782145%" x="0" y="27.5"/>
+<rect class="ratio" fill="#60B5CC" height="8" rx="5" ry="5" width="4.276150372170962%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="200">
 <text x="0" y="20">
 JavaScript: 3.8% (23KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="3.7977861132432524%" x="0" y="27.5"/>
+<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="3.8356181990235028%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="240">
 <text x="0" y="20">
 Python: 3.7% (22KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="3.6680875577890744%" x="0" y="27.5"/>
+<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="3.662265093689401%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="280">
 <text x="0" y="20">
 Shell: 1.9% (11KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#89e051" height="8" rx="5" ry="5" width="1.919892636630026%" x="0" y="27.5"/>
+<rect class="ratio" fill="#89e051" height="8" rx="5" ry="5" width="1.9168451341438142%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="320">
 <text x="0" y="20">
 C#: 1.8% (11KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#178600" height="8" rx="5" ry="5" width="1.8038719685376408%" x="0" y="27.5"/>
+<rect class="ratio" fill="#178600" height="8" rx="5" ry="5" width="1.801008629096652%" x="0" y="27.5"/>
 </svg>
 <svg width="250" xmlns="http://www.w3.org/2000/svg" y="360">
 <text x="0" y="20">
 CSS/SCSS: 0.8% (5KB)
 </text>
 <rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#563d7c" height="8" rx="5" ry="5" width="0.8298454720560761%" x="0" y="27.5"/>
+<rect class="ratio" fill="#563d7c" height="8" rx="5" ry="5" width="0.8418630879987917%" x="0" y="27.5"/>
 </svg>
 </svg>
 </svg>
@@ -119,7 +119,7 @@ github-stats-generator
 </text>
 </a>
 <text x="210" y="20">
-at 2023-07-27
+at 2023-08-02
 </text>
 </svg>
 </svg>
