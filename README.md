@@ -1,6 +1,4 @@
-Hi there! 👋 I'm a full-stack engineer, deeply intrigued by Rust and Elm these days. When I'm not immersed in code, I'm probably sipping coffee ☕ and pondering the next big thing in tech. Let's connect and code together! 💡🚀
-
-\**Note: This introduction was whimsically written by ChatGPT.*\*
+Hi there! 👋 I'm a Full-Stack Engineer 🧑‍💻. On this account, I'm exploring my personal learning and working on some app development 🚀. Lately, I've been interested in Rust and functional programming, with a particular focus on front-end development with Elm."
 
 ---
 
