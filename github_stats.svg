@@ -1,10 +1,10 @@
-<svg height="540" width="600" xmlns="http://www.w3.org/2000/svg">
+<svg height="540" viewBox="0 0 660 540" width="660" xmlns="http://www.w3.org/2000/svg">
 <style>
- .top_lang_chart text {
-    font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif;
+.chart text {
+    font: 400 9px 'Segoe UI', Ubuntu, Sans-Serif;
 }
 .title {
-    font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+    font: 600 11px 'Segoe UI', Ubuntu, Sans-Serif;
     fill: #2f80ed;
 }
 .star path {
@@ -24,9 +24,19 @@
     text-decoration: underline;
 }
 </style>
+<defs>
+<linearGradient id="green-grad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color: #66ff66"/>
+<stop offset="100%" style="stop-color: #009900"/>
+</linearGradient>
+<linearGradient id="blue-grad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color: #66ccff"/>
+<stop offset="100%" style="stop-color: #0000ff"/>
+</linearGradient>
+</defs>
 <svg class="star" x="20" xmlns="http://www.w3.org/2000/svg" y="10">
 <text width="100" x="25" y="13">
-Total Stars Earned: 3
+Total Stars Earned: 4
 </text>
 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"/>
@@ -34,80 +44,163 @@ Total Stars Earned: 3
 </svg>
 <svg x="20" xmlns="http://www.w3.org/2000/svg" y="30">
 <text class="title" x="0" y="30">
-Most Used Languages
+Top Languages
 </text>
-<svg class="top_lang_chart" height="504" viewBox="0 0 300 504" width="300" x="0" xmlns="http://www.w3.org/2000/svg" y="50">
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="0">
+<svg class="chart" x="0" xmlns="http://www.w3.org/2000/svg" y="50">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="0">
 <text x="0" y="20">
-TypeScript: 44.3% (275KB)
+TypeScript: 41.6% (302KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="44.276535958318135%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#3178c6" height="8" rx="5" ry="5" width="41.62709635531297%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="40">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="40">
 <text x="0" y="20">
-MQL5: 17.0% (105KB)
+MQL5: 14.6% (105KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#4A76B8" height="8" rx="5" ry="5" width="17.022021788830532%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#4A76B8" height="8" rx="5" ry="5" width="14.57407122105819%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="80">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="80">
 <text x="0" y="20">
-Go: 15.4% (95KB)
+Go: 14.1% (102KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="15.353397736930638%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#00ADD8" height="8" rx="5" ry="5" width="14.067039352055637%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="120">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="120">
 <text x="0" y="20">
-Rust: 6.9% (42KB)
+Rust: 10.5% (76KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="6.857167644823747%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#dea584" height="8" rx="5" ry="5" width="10.535010784400036%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="160">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="160">
 <text x="0" y="20">
-Elm: 4.3% (26KB)
+Scala: 5.1% (36KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#60B5CC" height="8" rx="5" ry="5" width="4.276150372170962%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#c22d40" height="8" rx="5" ry="5" width="5.071831807377411%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="200">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="200">
 <text x="0" y="20">
-JavaScript: 3.8% (23KB)
+Elm: 3.7% (26KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="3.8356181990235028%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#60B5CC" height="8" rx="5" ry="5" width="3.661193767056959%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="240">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="240">
 <text x="0" y="20">
-Python: 3.7% (22KB)
+JavaScript: 3.3% (24KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="3.662265093689401%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#f1e05a" height="8" rx="5" ry="5" width="3.306986750594242%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="280">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="280">
 <text x="0" y="20">
-Shell: 1.9% (11KB)
+Python: 3.1% (22KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#89e051" height="8" rx="5" ry="5" width="1.9168451341438142%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#3572A5" height="8" rx="5" ry="5" width="3.1355918214631573%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="320">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="320">
 <text x="0" y="20">
-C#: 1.8% (11KB)
+Shell: 1.6% (11KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#178600" height="8" rx="5" ry="5" width="1.801008629096652%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#89e051" height="8" rx="5" ry="5" width="1.6056926225900165%" x="0" y="27.5"/>
 </svg>
-<svg width="250" xmlns="http://www.w3.org/2000/svg" y="360">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="360">
 <text x="0" y="20">
-CSS/SCSS: 0.8% (5KB)
+C#: 1.5% (11KB)
 </text>
-<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="205" x="0" y="27.5"/>
-<rect class="ratio" fill="#563d7c" height="8" rx="5" ry="5" width="0.8418630879987917%" x="0" y="27.5"/>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="#178600" height="8" rx="5" ry="5" width="1.5420041376881768%" x="0" y="27.5"/>
 </svg>
 </svg>
+</svg>
+<svg x="240" xmlns="http://www.w3.org/2000/svg" y="30">
+<text class="title" x="0" y="30">
+Top Commits
+</text>
+<svg class="chart" x="0" xmlns="http://www.w3.org/2000/svg" y="50">
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="0">
+<text x="0" y="20">
+mt5: 10.7% (279)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="10.693752395553851%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="40">
+<text x="0" y="20">
+kengo-k.github.io-builder: 9.7% (254)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="9.735530854733614%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="80">
+<text x="0" y="20">
+tax-account-backend: 8.2% (214)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="8.202376389421234%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="120">
+<text x="0" y="20">
+github-stats-generator: 8.1% (211)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="8.087389804522806%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="160">
+<text x="0" y="20">
+password-manager-backend: 5.4% (142)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="5.44269835185895%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="200">
+<text x="0" y="20">
+k8s-study: 4.1% (108)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="4.1395170563434265%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="240">
+<text x="0" y="20">
+tax-account-frontend: 3.6% (93)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="3.5645841318512836%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="280">
+<text x="0" y="20">
+docker-dev-images: 3.6% (93)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="3.5645841318512836%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="320">
+<text x="0" y="20">
+vue-study: 3.5% (92)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="3.526255270218474%" x="0" y="27.5"/>
+</svg>
+<svg width="200" xmlns="http://www.w3.org/2000/svg" y="360">
+<text x="0" y="20">
+s3-image-viewer-backend: 3.4% (90)
+</text>
+<rect class="whole" fill="#ddd" height="8" rx="5" ry="5" width="200" x="0" y="27.5"/>
+<rect class="ratio" fill="url(#blue-grad)" height="8" rx="5" ry="5" width="3.4495975469528553%" x="0" y="27.5"/>
+</svg>
+</svg>
+</svg>
+<svg x="460" xmlns="http://www.w3.org/2000/svg" y="30">
+<text class="title" x="0" y="30">
+Top Active Commits(1week)
+</text>
+<svg class="chart" x="0" xmlns="http://www.w3.org/2000/svg" y="50"/>
 </svg>
 <svg class="footer" x="20" xmlns="http://www.w3.org/2000/svg" y="500">
 <text x="0" y="20">
@@ -119,7 +212,7 @@ github-stats-generator
 </text>
 </a>
 <text x="210" y="20">
-at 2023-08-02
+at 2024-01-09
 </text>
 </svg>
 </svg>

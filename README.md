@@ -1,4 +1,4 @@
-Hi there! 👋 I'm a Full-Stack Engineer 🧑‍💻. On this account, I'm exploring my personal learning and working on some app development 🚀. Lately, I've been interested in Rust and functional programming, with a particular focus on front-end development with Elm."
+Hi there! 👋 I'm a Full-Stack Engineer 🧑‍💻. On this account, I'm exploring my personal learning and working on some app development 🚀. Lately, I've been interested in Rust and functional programming, with a particular focus on front-end development with Elm.
 
 ---
 
