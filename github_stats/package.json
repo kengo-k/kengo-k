@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "serverless deploy",
-    "invoke-local": "serverless invoke local -f hello",
+    "invoke-local": "serverless invoke local -f main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

@@ -24,12 +24,12 @@ package:
   patterns:
     - "!**"
     - handler.py
-    - github_stats.py
-    - s3_uploader.py
+    - generate.py
+    - upload.py
 
 functions:
-  hello:
-    handler: handler.hello
+  main:
+    handler: handler.main
     description: Simple connectivity test
     memorySize: 128
     timeout: 10

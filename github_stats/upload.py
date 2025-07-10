@@ -94,7 +94,7 @@ if __name__ == "__main__":
     
     if not os.path.exists(svg_file):
         print(f"Error: Required file '{svg_file}' not found in current directory.")
-        print("Please run 'python github_stats.py' first to generate the SVG file.")
+        print("Please run 'python generate.py' first to generate the SVG file.")
         exit(1)
     
     print(f"Found {svg_file}, uploading to S3...")

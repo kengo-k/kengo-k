@@ -1,15 +1,15 @@
-def hello(event, context):
+def main(event, context):
     """
     GitHub repository statistics handler.
     Generates SVG chart and uploads to S3, then returns success/error status.
     """
     import os, json
-    from github_stats import generate_stats
-    from s3_uploader import upload_to_s3
+    from generate import generate_stats
+    from upload import upload_to_s3
 
     username = os.getenv("GITHUB_USERNAME")
     token = os.getenv("GITHUB_TOKEN")
-    
+
     if not username or not token:
         return {
             "statusCode": 400,
@@ -19,7 +19,7 @@ def hello(event, context):
 
     # Generate GitHub stats SVG
     result = generate_stats(username, token)
-    
+
     if not result["success"]:
         return {
             "statusCode": 500,
@@ -29,7 +29,7 @@ def hello(event, context):
 
     # Upload to S3
     upload_result = upload_to_s3(result["svg"], object_key="github-stats.svg")
-    
+
     if upload_result["success"]:
         return {
             "statusCode": 200,
