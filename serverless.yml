@@ -10,6 +10,7 @@ provider:
     GREETING: ${env:GREETING, 'Hello from Lambda!'}
     GITHUB_USERNAME: ${env:GITHUB_USERNAME, ''}
     GITHUB_TOKEN: ${env:GITHUB_TOKEN, ''}
+    S3_BUCKET_NAME: ${env:S3_BUCKET_NAME, ''}
 
 plugins:
   - serverless-python-requirements # 依存パッケージを Lambda 用にバンドル
@@ -21,6 +22,7 @@ package:
     - '!**'
     - handler.py
     - github_stats.py
+    - s3_uploader.py
 
 functions:
   hello:
