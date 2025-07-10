@@ -62,55 +62,6 @@ def get_github_data(username, token):
     return data["data"]["user"]["repositories"]["nodes"]
 
 
-def create_pie_chart(languages, center_x, center_y, radius):
-    """
-    言語別コードサイズの円グラフを作成（グラデーション付き）
-    """
-    total_size = sum(lang["size"] for lang in languages)
-    if total_size == 0:
-        return ""
-
-    svg_parts = []
-    start_angle = 0
-
-    # ドロップシャドウ効果
-    svg_parts.append(f'''
-    <defs>
-        <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-            <feOffset dx="2" dy="2" result="offset"/>
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.3"/>
-            </feComponentTransfer>
-            <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>''')
-
-    for i, lang in enumerate(languages):
-        angle = (lang["size"] / total_size) * 2 * math.pi
-        end_angle = start_angle + angle
-
-        # 円弧の座標計算
-        x1 = center_x + radius * math.cos(start_angle)
-        y1 = center_y + radius * math.sin(start_angle)
-        x2 = center_x + radius * math.cos(end_angle)
-        y2 = center_y + radius * math.sin(end_angle)
-
-        # 大きな弧かどうかを判定
-        large_arc = "1" if angle > math.pi else "0"
-
-        # パスを作成
-        path = f"M {center_x} {center_y} L {x1} {y1} A {radius} {radius} 0 {large_arc} 1 {x2} {y2} Z"
-
-        svg_parts.append(f'<path d="{path}" fill="{lang["color"]}" stroke="#f8f9fa" stroke-width="1.5" filter="url(#dropshadow)"/>')
-
-        start_angle = end_angle
-
-    return "\n".join(svg_parts)
-
 
 def create_bar_chart(repositories, start_x, start_y, max_width, row_height):
     """
@@ -165,70 +116,11 @@ def create_bar_chart(repositories, start_x, start_y, max_width, row_height):
     return "\n".join(svg_parts)
 
 
-def create_legend(languages, start_x, start_y):
-    """
-    言語別凡例を作成（スタイリッシュ版）
-    """
-    svg_parts = []
-
-    for i, lang in enumerate(languages):
-        y = start_y + i * 16  # 行間を狭める
-
-        # 色のボックス（角丸・シャドウ付き）
-        svg_parts.append(f'<rect x="{start_x}" y="{y}" width="10" height="10" rx="2" fill="{lang["color"]}" stroke="rgba(0,0,0,0.1)" stroke-width="0.5" filter="url(#dropshadow)"/>')
-
-        # 言語名（モダンフォント）
-        svg_parts.append(f'<text x="{start_x + 15}" y="{y + 8}" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#1f2937">{lang["name"]}</text>')
-
-        # サイズ（KB表示・モノスペース）
-        size_kb = lang["size"] / 1024
-        svg_parts.append(f'<text x="{start_x + 100}" y="{y + 8}" font-family="system-ui, -apple-system, monospace" font-size="8" font-weight="400" fill="#6b7280">{size_kb:.1f}KB</text>')
-
-    return "\n".join(svg_parts)
 
 
-def create_summary_stats(languages, repositories):
-    """
-    サマリー統計を作成
-    """
-    total_size = sum(lang["size"] for lang in languages)
-    active_repos = len([r for r in repositories if r["commit_count"] > 0])
-    total_commits = sum(r["commit_count"] for r in repositories)
-
-    svg_parts = []
-
-    # 統計カード
-    stats = [
-        {"icon": "💻", "value": f"{total_size/1024:.1f}KB", "label": "Total Code Size"},
-        {"icon": "📦", "value": str(active_repos), "label": "Active Repositories"},
-        {"icon": "📈", "value": str(total_commits), "label": "Total Commits"}
-    ]
-
-    card_width = 180
-    start_x = 40
-
-    for i, stat in enumerate(stats):
-        x = start_x + i * (card_width + 20)
-
-        # カード背景
-        svg_parts.append(f'''
-        <rect x="{x}" y="20" width="{card_width}" height="80" rx="8" fill="white"
-              stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
-        ''')
-
-        # アイコン
-        svg_parts.append(f'<text x="{x + 15}" y="45" font-size="20">{stat["icon"]}</text>')
-
-        # 値
-        svg_parts.append(f'<text x="{x + 50}" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1e293b">{stat["value"]}</text>')
-
-        # ラベル
-        svg_parts.append(f'<text x="{x + 50}" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#6b7280">{stat["label"]}</text>')
-
-    return "\n".join(svg_parts)
 
 
-def create_enhanced_pie_chart(languages, center_x, center_y, radius):
+def create_pie_chart(languages, center_x, center_y, radius):
     """
     強化された円グラフ（パーセンテージ付き）
     """
@@ -263,7 +155,7 @@ def create_enhanced_pie_chart(languages, center_x, center_y, radius):
     return "\n".join(svg_parts)
 
 
-def create_enhanced_legend(languages, start_x, start_y):
+def create_legend(languages, start_x, start_y):
     """
     強化された凡例（パーセンテージ付き）
     """
@@ -290,34 +182,6 @@ def create_enhanced_legend(languages, start_x, start_y):
     return "\n".join(svg_parts)
 
 
-def create_enhanced_bar_chart(repositories, start_x, start_y):
-    """
-    強化された棒グラフ（ドット形式）
-    """
-    # コミット数順にソート（Top10のみ）
-    sorted_repos = sorted(repositories, key=lambda r: r["commit_count"], reverse=True)[:8]
-
-    if not sorted_repos or sorted_repos[0]["commit_count"] == 0:
-        return ""
-
-    max_commits = sorted_repos[0]["commit_count"]
-    svg_parts = []
-
-    for i, repo in enumerate(sorted_repos):
-        y = start_y + i * 28
-        # 正規化された値（0-1）
-        normalized = repo["commit_count"] / max_commits
-
-        # リポジトリ名
-        svg_parts.append(f'<text x="{start_x}" y="{y + 15}" font-family="Inter, \'SF Pro Display\', \'Helvetica Neue\', Arial, sans-serif" font-size="11" font-weight="500" fill="#1e293b">{repo["name"]}</text>')
-
-        # ドット表示
-        dot_x = start_x + 200
-        for j in range(20):  # 20個のドット
-            dot_opacity = 1.0 if j/20 <= normalized else 0.2
-            svg_parts.append(f'<circle cx="{dot_x + j * 12}" cy="{y + 10}" r="3" fill="#4f46e5" opacity="{dot_opacity}"/>')
-
-    return "\n".join(svg_parts)
 
 
 def create_svg(repositories):
@@ -405,10 +269,10 @@ def create_svg(repositories):
     <text x="60" y="110" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#1e293b">Language Distribution</text>
     <text x="60" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Languages used in your projects</text>
 
-    {create_enhanced_pie_chart(languages, 140, 270, 70)}
+    {create_pie_chart(languages, 140, 270, 70)}
 
     <!-- 言語凡例 -->
-    {create_enhanced_legend(languages, 250, 150)}
+    {create_legend(languages, 250, 150)}
 
     <!-- 右側: トップリポジトリ -->
     <rect x="410" y="80" width="350" height="350" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
