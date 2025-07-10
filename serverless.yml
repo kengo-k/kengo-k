@@ -1,0 +1,31 @@
+service: github-stats
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: ap-northeast-1 # 任意のリージョンに変更可
+  environment:
+    GREETING: ${env:GREETING, 'Hello from Lambda!'}
+
+plugins:
+  - serverless-dotenv-plugin # .env から環境変数を注入
+
+
+package:
+  patterns:
+    - '!**'
+    - handler.py
+
+functions:
+  hello:
+    handler: handler.hello
+    description: Simple connectivity test
+    memorySize: 128
+    timeout: 10
+    # ローカルテスト後にスケジュールを有効化する場合は enabled を true に変更
+    events:
+      - schedule:
+          rate: rate(1 day)
+          enabled: false

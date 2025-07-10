@@ -1,0 +1,46 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.coverage
+.coverage.*
+*.egg-info/
+*.eggs/
+*.egg
+
+# Virtual Environments
+.env/
+.venv/
+venv/
+
+# --- Serverless Framework ---
+.serverless/
+.aws-sam/
+
+# Lambda deployment packages
+*.zip
+
+# --- Environment & Secrets ---
+.env
+.env.*
+
+# --- Node / npm (if local install) ---
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# --- OS / Editor files ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- macOS metadata ---
+*.swp
+*.swo
+
+# --- Logs ---
+*.log
+
+# --- Misc ---
+*.bak

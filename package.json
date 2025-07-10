@@ -1,0 +1,27 @@
+{
+  "name": "kengo-k",
+  "version": "1.0.0",
+  "description": "Hi there! I'm a Full-Stack Engineer. I'm focusing on personal learning and working on some app development projects 🚀",
+  "homepage": "https://github.com/kengo-k/kengo-k#readme",
+  "bugs": {
+    "url": "https://github.com/kengo-k/kengo-k/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kengo-k/kengo-k.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "invoke-local": "serverless invoke local -f hello",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "serverless": "^3.40.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-python-requirements": "^6.1.2"
+  }
+}
