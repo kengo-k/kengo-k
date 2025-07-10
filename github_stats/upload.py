@@ -6,43 +6,38 @@ from botocore.exceptions import ClientError, NoCredentialsError
 
 def upload_to_s3(svg_content, bucket_name=None, object_key=None):
     """
-    SVGコンテンツをS3にアップロード
-    
+    Upload SVG content to S3
+
     Args:
-        svg_content (str): アップロードするSVGの内容
-        bucket_name (str): S3バケット名（環境変数S3_BUCKET_NAMEから取得可能）
-        object_key (str): S3オブジェクトキー（デフォルト: github-stats.svg）
-    
+        svg_content (str): SVG content to upload
+        bucket_name (str): S3 bucket name (can be obtained from S3_BUCKET_NAME env var)
+        object_key (str): S3 object key (default: github-stats.svg)
+
     Returns:
-        dict: アップロード結果
+        dict: Upload result
     """
     try:
-        # バケット名を環境変数から取得
         if not bucket_name:
             bucket_name = os.getenv("S3_BUCKET_NAME")
-            
+
         if not bucket_name:
             raise ValueError("S3 bucket name is required. Set S3_BUCKET_NAME environment variable or pass bucket_name parameter.")
-        
-        # オブジェクトキーのデフォルト設定
+
         if not object_key:
             object_key = "github-stats.svg"
-        
-        # S3クライアントを作成
+
         s3_client = boto3.client('s3')
-        
-        # SVGをS3にアップロード
+
         s3_client.put_object(
             Bucket=bucket_name,
             Key=object_key,
             Body=svg_content.encode('utf-8'),
             ContentType='image/svg+xml',
-            CacheControl='max-age=3600'  # 1時間キャッシュ
+            CacheControl='max-age=3600'
         )
-        
-        # パブリックURLを生成
+
         s3_url = f"https://{bucket_name}.s3.amazonaws.com/{object_key}"
-        
+
         return {
             "success": True,
             "bucket": bucket_name,
@@ -50,7 +45,7 @@ def upload_to_s3(svg_content, bucket_name=None, object_key=None):
             "url": s3_url,
             "uploaded_at": datetime.utcnow().isoformat()
         }
-        
+
     except NoCredentialsError:
         return {
             "success": False,
@@ -70,42 +65,38 @@ def upload_to_s3(svg_content, bucket_name=None, object_key=None):
 
 def upload_stats_to_s3(svg_content, username=None):
     """
-    GitHub統計SVGをS3にアップロード（ユーザー名ベースのキー）
-    
+    Upload GitHub stats SVG to S3 with username-based key
+
     Args:
-        svg_content (str): アップロードするSVGの内容
-        username (str): GitHubユーザー名（ファイル名に使用）
-    
+        svg_content (str): SVG content to upload
+        username (str): GitHub username (used in filename)
+
     Returns:
-        dict: アップロード結果
+        dict: Upload result
     """
-    # ユーザー名ベースのオブジェクトキーを生成
     if username:
         object_key = f"github-stats/{username}.svg"
     else:
         object_key = "github-stats.svg"
-    
+
     return upload_to_s3(svg_content, object_key=object_key)
 
 
 if __name__ == "__main__":
-    # github_stats.svgファイルが存在するかチェック
     svg_file = "github_stats.svg"
-    
+
     if not os.path.exists(svg_file):
         print(f"Error: Required file '{svg_file}' not found in current directory.")
         print("Please run 'python generate.py' first to generate the SVG file.")
         exit(1)
-    
+
     print(f"Found {svg_file}, uploading to S3...")
-    
-    # ファイルからSVGを読み込み
+
     with open(svg_file, 'r', encoding='utf-8') as f:
         svg_content = f.read()
-    
-    # S3にアップロード
+
     result = upload_to_s3(svg_content, object_key="github-stats.svg")
-    
+
     if result["success"]:
         print(f"Upload successful!")
         print(f"Bucket: {result['bucket']}")
