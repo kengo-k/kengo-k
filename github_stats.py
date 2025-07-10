@@ -2,6 +2,7 @@ import json
 import math
 import requests
 from collections import defaultdict
+from datetime import datetime
 
 
 def get_github_data(username, token):
@@ -415,6 +416,9 @@ def create_svg(repositories):
     <text x="430" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Most active repositories by commit count</text>
 
     {create_bar_chart(processed_repos, 430, 150, 80, 24)}
+
+    <!-- 生成時刻 -->
+    <text x="750" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</text>
 
     </svg>'''
 
