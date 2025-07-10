@@ -7,7 +7,6 @@ provider:
   runtime: python3.8
   region: ap-northeast-1
   environment:
-    GREETING: ${env:GREETING, 'Hello from Lambda!'}
     GITHUB_USERNAME: ${env:GITHUB_USERNAME, ''}
     GITHUB_TOKEN: ${env:GITHUB_TOKEN, ''}
     S3_BUCKET_NAME: ${env:S3_BUCKET_NAME, ''}
