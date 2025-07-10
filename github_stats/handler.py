@@ -14,7 +14,10 @@ def main(event, context):
         return {
             "statusCode": 400,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"error": "GITHUB_USERNAME and GITHUB_TOKEN are required"}, ensure_ascii=False),
+            "body": json.dumps(
+                {"error": "GITHUB_USERNAME and GITHUB_TOKEN are required"},
+                ensure_ascii=False,
+            ),
         }
 
     # Generate GitHub stats SVG
@@ -24,7 +27,10 @@ def main(event, context):
         return {
             "statusCode": 500,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"error": f"SVG generation failed: {result['error']}"}, ensure_ascii=False),
+            "body": json.dumps(
+                {"error": f"SVG generation failed: {result['error']}"},
+                ensure_ascii=False,
+            ),
         }
 
     # Upload to S3
@@ -34,16 +40,22 @@ def main(event, context):
         return {
             "statusCode": 200,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({
-                "message": "GitHub stats generated and uploaded successfully",
-                "username": username,
-                "s3_url": upload_result["url"],
-                "uploaded_at": upload_result["uploaded_at"]
-            }, ensure_ascii=False),
+            "body": json.dumps(
+                {
+                    "message": "GitHub stats generated and uploaded successfully",
+                    "username": username,
+                    "s3_url": upload_result["url"],
+                    "uploaded_at": upload_result["uploaded_at"],
+                },
+                ensure_ascii=False,
+            ),
         }
     else:
         return {
             "statusCode": 500,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"error": f"S3 upload failed: {upload_result['error']}"}, ensure_ascii=False),
+            "body": json.dumps(
+                {"error": f"S3 upload failed: {upload_result['error']}"},
+                ensure_ascii=False,
+            ),
         }

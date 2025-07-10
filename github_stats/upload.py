@@ -21,19 +21,21 @@ def upload_to_s3(svg_content, bucket_name=None, object_key=None):
             bucket_name = os.getenv("S3_BUCKET_NAME")
 
         if not bucket_name:
-            raise ValueError("S3 bucket name is required. Set S3_BUCKET_NAME environment variable or pass bucket_name parameter.")
+            raise ValueError(
+                "S3 bucket name is required. Set S3_BUCKET_NAME environment variable or pass bucket_name parameter."
+            )
 
         if not object_key:
             object_key = "github-stats.svg"
 
-        s3_client = boto3.client('s3')
+        s3_client = boto3.client("s3")
 
         s3_client.put_object(
             Bucket=bucket_name,
             Key=object_key,
-            Body=svg_content.encode('utf-8'),
-            ContentType='image/svg+xml',
-            CacheControl='max-age=3600'
+            Body=svg_content.encode("utf-8"),
+            ContentType="image/svg+xml",
+            CacheControl="max-age=3600",
         )
 
         s3_url = f"https://{bucket_name}.s3.amazonaws.com/{object_key}"
@@ -43,24 +45,21 @@ def upload_to_s3(svg_content, bucket_name=None, object_key=None):
             "bucket": bucket_name,
             "key": object_key,
             "url": s3_url,
-            "uploaded_at": datetime.utcnow().isoformat()
+            "uploaded_at": datetime.utcnow().isoformat(),
         }
 
     except NoCredentialsError:
         return {
             "success": False,
-            "error": "AWS credentials not found. Configure AWS credentials."
+            "error": "AWS credentials not found. Configure AWS credentials.",
         }
     except ClientError as e:
         return {
             "success": False,
-            "error": f"AWS S3 error: {e.response['Error']['Message']}"
+            "error": f"AWS S3 error: {e.response['Error']['Message']}",
         }
     except Exception as e:
-        return {
-            "success": False,
-            "error": f"Upload failed: {str(e)}"
-        }
+        return {"success": False, "error": f"Upload failed: {str(e)}"}
 
 
 def upload_stats_to_s3(svg_content, username=None):
@@ -92,7 +91,7 @@ if __name__ == "__main__":
 
     print(f"Found {svg_file}, uploading to S3...")
 
-    with open(svg_file, 'r', encoding='utf-8') as f:
+    with open(svg_file, "r", encoding="utf-8") as f:
         svg_content = f.read()
 
     result = upload_to_s3(svg_content, object_key="github-stats.svg")
