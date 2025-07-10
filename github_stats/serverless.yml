@@ -16,6 +16,10 @@ plugins:
   - serverless-python-requirements # 依存パッケージを Lambda 用にバンドル
   - serverless-dotenv-plugin # .env から環境変数を注入
 
+custom:
+  pythonRequirements:
+    pythonBin: python3
+
 
 package:
   patterns:
