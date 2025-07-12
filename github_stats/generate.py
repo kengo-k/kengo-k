@@ -1,6 +1,7 @@
 import json
 import math
 import requests
+import fnmatch
 from collections import defaultdict
 from datetime import datetime
 
@@ -186,11 +187,25 @@ def create_svg(repositories):
     # List of languages to exclude
     excluded_languages = {"html", "css", "dockerfile", "makefile", "shell"}
 
+    # List of repositories to exclude
+    excluded_repositories = {
+        "zenn-posts",
+        "kengo-k",
+        "techblog",
+        "*example",
+    }
+
     # Data processing
     language_stats = defaultdict(lambda: {"size": 0, "color": "#000000"})
     processed_repos = []
 
     for repo in repositories:
+        # Skip excluded repositories (with wildcard support)
+        if any(
+            fnmatch.fnmatch(repo["name"], pattern) for pattern in excluded_repositories
+        ):
+            continue
+
         # Aggregate language statistics
         for lang_edge in repo["languages"]["edges"]:
             lang_name = lang_edge["node"]["name"]
