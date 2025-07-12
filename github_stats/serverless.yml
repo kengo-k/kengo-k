@@ -10,6 +10,12 @@ provider:
     GITHUB_USERNAME: ${env:GITHUB_USERNAME, ''}
     GITHUB_TOKEN: ${env:GITHUB_TOKEN, ''}
     S3_BUCKET_NAME: ${env:S3_BUCKET_NAME, ''}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:PutObjectAcl
+      Resource: "arn:aws:s3:::${env:S3_BUCKET_NAME, 'github-repository-stats'}/*"
 
 plugins:
   - serverless-python-requirements # Bundle dependencies for Lambda
@@ -31,7 +37,7 @@ functions:
     handler: handler.main
     description: Simple connectivity test
     memorySize: 128
-    timeout: 10
+    timeout: 30
     events:
       - schedule:
           rate: cron(0 19 * * ? *) # 毎日UTC 19:00 = 日本時間 4:00
