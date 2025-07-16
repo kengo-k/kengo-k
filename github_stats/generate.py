@@ -191,7 +191,6 @@ def create_svg(repositories):
     excluded_repositories = {
         "zenn-posts",
         "kengo-k",
-        "techblog",
         "*example",
     }
 
