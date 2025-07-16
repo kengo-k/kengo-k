@@ -292,7 +292,7 @@ def create_svg(repositories):
     {create_bar_chart(processed_repos, 430, 150, 80, 24)}
 
     <!-- Generation time -->
-    <text x="750" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</text>
+    <text x="750" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC</text>
 
     </svg>"""
 
