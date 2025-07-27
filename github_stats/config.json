@@ -1,0 +1,17 @@
+{
+  "excluded_languages": [
+    "html",
+    "css", 
+    "dockerfile",
+    "makefile",
+    "shell"
+  ],
+  "excluded_repositories": [
+    "zenn-posts",
+    "kengo-k",
+    "private-vault",
+    "sequa",
+    "optisnap",
+    "glimpse"
+  ]
+} 

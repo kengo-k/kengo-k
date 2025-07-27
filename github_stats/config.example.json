@@ -1,0 +1,20 @@
+{
+  "excluded_languages": [
+    "html",
+    "css", 
+    "dockerfile",
+    "makefile",
+    "shell",
+    "markdown",
+    "yaml",
+    "json"
+  ],
+  "excluded_repositories": [
+    "zenn-posts",
+    "kengo-k",
+    "*example",
+    "*test",
+    "*demo",
+    "temp-*"
+  ]
+} 

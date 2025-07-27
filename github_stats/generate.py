@@ -2,6 +2,7 @@ import json
 import math
 import requests
 import fnmatch
+import os
 from collections import defaultdict
 from datetime import datetime
 
@@ -200,19 +201,37 @@ def create_legend(languages, start_x, start_y):
     return "\n".join(svg_parts)
 
 
+def load_config():
+    """
+    Load configuration from config.json
+    """
+    config_path = os.path.join(os.path.dirname(__file__), "config.json")
+    try:
+        with open(config_path, "r") as f:
+            config = json.load(f)
+        return config
+    except FileNotFoundError:
+        # Default configuration if file doesn't exist
+        return {
+            "excluded_languages": ["html", "css", "dockerfile", "makefile", "shell"],
+            "excluded_repositories": ["zenn-posts", "kengo-k", "*example"]
+        }
+    except json.JSONDecodeError:
+        print("Warning: Invalid config.json format, using default configuration")
+        return {
+            "excluded_languages": ["html", "css", "dockerfile", "makefile", "shell"],
+            "excluded_repositories": ["zenn-posts", "kengo-k", "*example"]
+        }
+
+
 def create_svg(repositories):
     """
     Create SVG statistics chart
     """
-    # List of languages to exclude
-    excluded_languages = {"html", "css", "dockerfile", "makefile", "shell"}
-
-    # List of repositories to exclude
-    excluded_repositories = {
-        "zenn-posts",
-        "kengo-k",
-        "*example",
-    }
+    # Load configuration
+    config = load_config()
+    excluded_languages = set(config["excluded_languages"])
+    excluded_repositories = set(config["excluded_repositories"])
 
     # Data processing
     language_stats = defaultdict(lambda: {"size": 0, "color": "#000000"})
