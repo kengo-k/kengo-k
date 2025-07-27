@@ -102,14 +102,21 @@ def create_bar_chart(repositories, start_x, start_y, max_width, row_height):
 
         # Private lock icon (if repository is private)
         if repo.get("isPrivate", False):
-            lock_x = start_x - 15
+            lock_x = start_x - 14
             lock_y = y + 8
-            # Simple lock icon using SVG shapes
+            # Professional lock icon from downloaded SVG (smaller scale)
             svg_parts.append(
-                f'<rect x="{lock_x}" y="{lock_y + 2}" width="8" height="6" rx="1" fill="#6b7280"/>'
-            )
-            svg_parts.append(
-                f'<rect x="{lock_x + 1}" y="{lock_y}" width="6" height="4" rx="1" fill="#6b7280"/>'
+                f'''
+                <g transform="translate({lock_x}, {lock_y}) scale(0.015)">
+                    <path d="M407.543,204.886v-53.345c0.016-41.722-17.033-79.835-44.392-107.153C335.849,17.028,297.736-0.016,256.002,0
+                        c-41.738-0.016-79.85,17.028-107.153,44.388c-27.38,27.318-44.404,65.431-44.404,107.153v53.345H55.558v210.128
+                        c0,53.572,43.437,96.986,97.002,96.986h206.898c53.565,0,96.985-43.413,96.985-96.986V204.886H407.543z M178.017,151.541
+                        c0-10.867,2.178-21.035,6.108-30.342c5.889-13.956,15.822-25.937,28.274-34.349c12.513-8.429,27.306-13.274,43.603-13.29
+                        c10.864,0,21.032,2.17,30.338,6.104c13.956,5.893,25.934,15.842,34.346,28.294c8.412,12.485,13.277,27.286,13.298,43.583v53.345
+                        H178.017V151.541z M256.002,392.378c-27.672,0-50.114-22.442-50.114-50.11c0-27.676,22.442-50.11,50.114-50.11
+                        c27.668,0,50.11,22.434,50.11,50.11C306.112,369.936,283.67,392.378,256.002,392.378z" fill="#6b7280"/>
+                </g>
+                '''
             )
 
         # Repository name (always start at the same position)
