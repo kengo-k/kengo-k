@@ -20,6 +20,7 @@ def get_github_data(username, token):
             repositories(first: 100, ownerAffiliations: OWNER) {
                 nodes {
                     name
+                    isPrivate
                     defaultBranchRef {
                         target {
                             ... on Commit {
@@ -99,7 +100,19 @@ def create_bar_chart(repositories, start_x, start_y, max_width, row_height):
         y = start_y + i * row_height
         bar_width = (repo["commit_count"] / max_commits) * max_width
 
-        # Repository name
+        # Private lock icon (if repository is private)
+        if repo.get("isPrivate", False):
+            lock_x = start_x - 15
+            lock_y = y + 8
+            # Simple lock icon using SVG shapes
+            svg_parts.append(
+                f'<rect x="{lock_x}" y="{lock_y + 2}" width="8" height="6" rx="1" fill="#6b7280"/>'
+            )
+            svg_parts.append(
+                f'<rect x="{lock_x + 1}" y="{lock_y}" width="6" height="4" rx="1" fill="#6b7280"/>'
+            )
+
+        # Repository name (always start at the same position)
         text_color = "#6b7280"
         svg_parts.append(
             f'<text x="{start_x}" y="{y + 15}" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="{text_color}">{repo["name"]}</text>'
@@ -223,7 +236,12 @@ def create_svg(repositories):
         repo_size = sum(lang_edge["size"] for lang_edge in repo["languages"]["edges"])
 
         processed_repos.append(
-            {"name": repo["name"], "commit_count": commit_count, "size": repo_size}
+            {
+                "name": repo["name"], 
+                "commit_count": commit_count, 
+                "size": repo_size,
+                "isPrivate": repo.get("isPrivate", False)
+            }
         )
 
     # Convert language data to array
@@ -234,7 +252,7 @@ def create_svg(repositories):
     languages.sort(key=lambda x: x["size"], reverse=True)
 
     # Create SVG (dashboard version)
-    width = 800
+    width = 850
     height = 450
 
     svg = f"""<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
@@ -274,7 +292,7 @@ def create_svg(repositories):
     <text x="400" y="50" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle">Language usage and commit activity</text>
 
     <!-- Left side: Language distribution -->
-    <rect x="40" y="80" width="350" height="350" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
+    <rect x="40" y="80" width="375" height="350" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
     <text x="60" y="110" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#1e293b">Language Distribution</text>
     <text x="60" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Languages used in your projects</text>
 
@@ -284,14 +302,14 @@ def create_svg(repositories):
     {create_legend(languages, 250, 150)}
 
     <!-- Right side: Top repositories -->
-    <rect x="410" y="80" width="350" height="350" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
-    <text x="430" y="110" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#1e293b">Top Repositories</text>
-    <text x="430" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Most active repositories by commit count</text>
+    <rect x="435" y="80" width="375" height="350" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadow)"/>
+    <text x="455" y="110" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#1e293b">Top Repositories</text>
+    <text x="455" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Most active repositories by commit count</text>
 
-    {create_bar_chart(processed_repos, 430, 150, 80, 24)}
+    {create_bar_chart(processed_repos, 465, 150, 85, 24)}
 
     <!-- Generation time -->
-    <text x="750" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC</text>
+    <text x="800" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC</text>
 
     </svg>"""
 
