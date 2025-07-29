@@ -238,6 +238,10 @@ def create_svg(repositories):
     processed_repos = []
 
     for repo in repositories:
+        # Skip repositories starting with '_' (built-in rule)
+        if repo["name"].startswith("_"):
+            continue
+            
         # Skip excluded repositories (with wildcard support)
         if any(
             fnmatch.fnmatch(repo["name"], pattern) for pattern in excluded_repositories
@@ -257,6 +261,10 @@ def create_svg(repositories):
         commit_count = 0
         if repo["defaultBranchRef"] and repo["defaultBranchRef"]["target"]:
             commit_count = repo["defaultBranchRef"]["target"]["history"]["totalCount"]
+
+        # Skip repositories with 0 commits (built-in rule)
+        if commit_count == 0:
+            continue
 
         # Calculate repository size
         repo_size = sum(lang_edge["size"] for lang_edge in repo["languages"]["edges"])
