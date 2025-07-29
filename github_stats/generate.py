@@ -340,7 +340,7 @@ def create_svg(repositories):
     <text x="455" y="110" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#1e293b">Top Repositories</text>
     <text x="455" y="130" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Most active repositories by commit count</text>
 
-    {create_bar_chart(processed_repos, 465, 150, 85, 24)}
+    {create_bar_chart(processed_repos, 465, 150, 85, 27)}
 
     <!-- Generation time -->
     <text x="800" y="20" font-family="Inter, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" fill="#9ca3af" text-anchor="end">Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC</text>
